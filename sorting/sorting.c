@@ -145,11 +145,12 @@ void insertionSort_aluno(struct aluno *vetor, int nElementos)
 void merge(int *vetor, int inicio, int meio, int fim)
 {
     int *temp, p1, p2, tamanho, i, j, k;
-    int fim1 = 0, fim2 = 0;
+    char fim1 = 0, fim2 = 0;
 
     tamanho = fim-inicio+1; // tamanho do vetor
     p1 = inicio; // indice do primeiro elemento da parte 1
     p2 = meio+1; // indice do primeiro elemento da parte 2
+
     // alocacao do vetor temporario
     temp = (int *) malloc(tamanho*sizeof(int));
 
@@ -159,27 +160,26 @@ void merge(int *vetor, int inicio, int meio, int fim)
         {
             if(!fim1 && !fim2)
             {
-                if(vetor[p1] < vetor[p2])
+                if(vetor[p1] < vetor[p2]) // combina ordenando
                     temp[i] = vetor[p1++];
                 else
                     temp[i] = vetor[p2++];
 
-                if(p1 > meio)
+                if(p1 > meio) // sinaliza se um dos vetores acabou
                     fim1 = 1;
                 if(p2 > fim)
                     fim2 = 1;
             }else{
-                if(!fim1)
+                if(!fim1) // copia os demais valores restantes
                     temp[i] = vetor[p1++];
                 else
                     temp[i] = vetor[p2++];
             }
         }
-        for(j = 0, k = inicio; j < tamanho; ++j, ++k)
+        for(j = 0, k = inicio; j < tamanho; ++j, ++k) // copia de temp para o original
             vetor[k] = temp[j];
     }
-    // liberacao da memoria alocada a temp
-    free(temp);
+    free(temp); // liberacao da memoria alocada a temp
 }
 
 void mergeSort(int *vetor, int inicio, int fim)
@@ -188,10 +188,10 @@ void mergeSort(int *vetor, int inicio, int fim)
 
     if(inicio < fim)
     {
-        meio = floor((inicio+fim)/2); // arredonda para baixo
-        mergeSort(vetor,inicio,meio);
-        mergeSort(vetor,meio+1,fim);
-        merge(vetor,inicio,meio,fim);
+        meio = floor((inicio+fim)/2); // arredondado para baixo
+        mergeSort(vetor, inicio, meio); // fraciona a parte esquerda do vetor
+        mergeSort(vetor, meio+1, fim); // fraciona a parte direita do vetor
+        merge(vetor, inicio, meio, fim); // combina as partes de forma ordenada
     }
 }
 // =====================================================================

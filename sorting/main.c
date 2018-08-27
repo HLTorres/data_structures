@@ -47,6 +47,13 @@ int main()
 //    //============================================
 
     //============================================
+    printf("\n\nVetor APOS o Merge Sort\n");
+    mergeSort(vetor, 0, nElementos-1);
+    for(i = 0; i < nElementos; ++i)
+        printf("%d  ", vetor[i]);
+    //============================================
+
+    //============================================
     printf("\n\nVetor de float APOS o Bubble Sort\n");
     bubbleSort_float(vetor2, nElementos);
     for(i = 0; i < nElementos2; ++i)
