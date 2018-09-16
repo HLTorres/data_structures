@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "sorting.h"
 
 int main()
@@ -10,9 +11,9 @@ int main()
     char nome[] = "daniel";
 
     struct aluno cadastro[4] = {{2, "Hugo", 9.5, 7.8, 8.5},
-                                {4, "Ricardo", 7.5, 8.7, 6.8},
-                                {1, "Bianca", 9.7, 6.7, 8.4},
-                                {3, "Ana", 5.7, 6.1, 7.4}};
+    {4, "Ricardo", 7.5, 8.7, 6.8},
+    {1, "Bianca", 9.7, 6.7, 8.4},
+    {3, "Ana", 5.7, 6.1, 7.4}};
 
     // calculando o numero de elementos do vetor de inteiros
     nElementos = sizeof(vetor)/sizeof(int);
@@ -25,30 +26,44 @@ int main()
     for(i = 0; i < nElementos; ++i)
         printf("%d  ", vetor[i]);
 
-//    //============================================
-//    printf("\n\nVetor APOS o Bubble Sort\n");
-//    bubbleSort(vetor, nElementos);
-//    for(i = 0; i < nElementos; ++i)
-//        printf("%d  ", vetor[i]);
-//    //============================================
+    //    //============================================
+    //    printf("\n\nVetor APOS o Bubble Sort\n");
+    //    bubbleSort(vetor, nElementos);
+    //    for(i = 0; i < nElementos; ++i)
+    //        printf("%d  ", vetor[i]);
+    //    //============================================
+
+    //    //============================================
+    //    printf("\n\nVetor APOS o Selection Sort\n");
+    //    selectionSort(vetor, nElementos);
+    //    for(i = 0; i < nElementos; ++i)
+    //        printf("%d  ", vetor[i]);
+    //    //============================================
+
+    //    //============================================
+    //    printf("\n\nVetor APOS o Insertion Sort\n");
+    //    insertionSort(vetor, nElementos);
+    //    for(i = 0; i < nElementos; ++i)
+    //        printf("%d  ", vetor[i]);
+    //    //============================================
+
+    //    //============================================
+    //    printf("\n\nVetor APOS o Merge Sort\n");
+    //    mergeSort(vetor, 0, nElementos-1);
+    //    for(i = 0; i < nElementos; ++i)
+    //        printf("%d  ", vetor[i]);
+    //    //============================================
 
 //    //============================================
-//    printf("\n\nVetor APOS o Selection Sort\n");
-//    selectionSort(vetor, nElementos);
-//    for(i = 0; i < nElementos; ++i)
-//        printf("%d  ", vetor[i]);
-//    //============================================
-
-//    //============================================
-//    printf("\n\nVetor APOS o Insertion Sort\n");
-//    insertionSort(vetor, nElementos);
+//    printf("\n\nVetor APOS o Quick Sort\n");
+//    quickSort(vetor, 0, nElementos-1);
 //    for(i = 0; i < nElementos; ++i)
 //        printf("%d  ", vetor[i]);
 //    //============================================
 
     //============================================
-    printf("\n\nVetor APOS o Merge Sort\n");
-    mergeSort(vetor, 0, nElementos-1);
+    printf("\n\nVetor APOS o Heap Sort\n");
+    heapSort(vetor, nElementos);
     for(i = 0; i < nElementos; ++i)
         printf("%d  ", vetor[i]);
     //============================================

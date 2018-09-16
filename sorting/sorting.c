@@ -195,3 +195,87 @@ void mergeSort(int *vetor, int inicio, int fim)
     }
 }
 // =====================================================================
+
+// =====================================================================
+// ordenacao de um vetor de inteiros por particao
+int particiona(int * vetor, int inicio, int final )
+{
+    int esquerda, direita, pivo, aux;
+    esquerda = inicio;
+    direita = final;
+    pivo = vetor[inicio];
+    while(esquerda < direita)
+    {
+        while(vetor[esquerda] <= pivo) // avanca posicao da esquerda
+            ++esquerda;
+        while(vetor[direita] > pivo) // avanca posicao da direita
+            --direita;
+        if(esquerda < direita) // troca esquerda e direita
+        {
+            aux = vetor[esquerda];
+            vetor[esquerda] = vetor[direita];
+            vetor[direita] = aux;
+        }
+    }
+    vetor[inicio] = vetor[direita];
+    vetor[direita] = pivo;
+    return direita;
+}
+
+void quickSort(int * vetor, int inicio, int fim)
+{
+    int pivo;
+
+    if(fim > inicio)
+    {
+        pivo = particiona(vetor, inicio, fim); // separa os dados em duas particoes
+        quickSort(vetor, inicio, pivo-1); // ordena a metade da esquerda
+        quickSort(vetor, pivo+1, fim); // ordena a metade da direita
+    }
+}
+// =====================================================================
+
+// =====================================================================
+// ordenacao de um vetor de inteiros por monte
+void criaHeap(int * vetor, int pai, int fim)
+{
+    int aux = vetor[pai]; // armazena o valor da posicao pai
+    int filho = 2*pai + 1; // calcula o primeiro filho
+    while (filho <= fim) // verifica se a posicao filho esta no array
+    {
+        if(filho < fim) // verifica se existe o segundo filho
+        {
+            if(vetor[filho] < vetor[filho + 1]) // seleciona o maior filho
+                filho = filho + 1;
+        }
+
+        if(aux < vetor[filho]) // verifica se aux e menor do que o valor em filho
+        {
+            vetor[pai] = vetor[filho]; // posicao pai recebe o valor do maior filho
+            pai = filho; // filho e considerado o novo pai
+            filho = 2*pai + 1; // novo filho e calculado
+        }else{
+            // filho recebe uma posicao alem do vetor para que o comando while termine
+            filho = fim + 1;
+
+        }
+    }
+    vetor[pai] = aux; // aux e copiado para o pai atual
+}
+
+void heapSort(int * vetor, int nElementos)
+{
+    int i, aux;
+    for(i=(nElementos-1)/2; i >= 0; --i) // cria heap a partir dos dados
+    {
+        criaHeap(vetor, i, nElementos-1);
+    }
+    for (i = nElementos-1; i >= 1; --i)
+    {
+        aux = vetor[0]; // pega o maior elemento da heap
+        vetor [0] = vetor [i]; // copia o valor de i para o inicio
+        vetor [i] = aux; // coloca o maior elemento em i
+        criaHeap(vetor, 0, i - 1); // reconstroi heap
+    }
+}
+// =====================================================================

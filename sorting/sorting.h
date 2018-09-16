@@ -8,12 +8,14 @@ struct aluno{
     float p1, p2, p3;
 };
 
-void bubbleSort(int *vetor, int nElementos);
-void bubbleSort_float(float *vetor, int nElementos);
-void selectionSort(int *vetor, int nElementos);
-void selectionSort_char(char *vetor, int nElementos);
-void insertionSort(int *vetor, int nElementos);
-void insertionSort_aluno(struct aluno *vetor, int nElementos);
-void mergeSort(int *vetor, int inicio, int fim);
+void bubbleSort(int * vetor, int nElementos);
+void bubbleSort_float(float * vetor, int nElementos);
+void selectionSort(int * vetor, int nElementos);
+void selectionSort_char(char * vetor, int nElementos);
+void insertionSort(int * vetor, int nElementos);
+void insertionSort_aluno(struct aluno * vetor, int nElementos);
+void mergeSort(int * vetor, int inicio, int fim);
+void quickSort(int * vetor, int inicio, int fim);
+void heapSort(int * vetor, int nElementos);
 
 #endif // SORTING_H
