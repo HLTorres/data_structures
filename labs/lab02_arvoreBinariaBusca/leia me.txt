@@ -1,0 +1,5 @@
+1) Implementar uma função que calcule a quantidade de nós com chave ímpar em uma árvore binária.
+
+2) Implementar uma função que calcule a quantidade de nós folha em uma árvore binária.
+
+3) Implementar uma função que calcule a quantidade de nós nao folha em uma árvore binária.
