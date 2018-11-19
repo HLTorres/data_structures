@@ -1,0 +1,8 @@
+1) Implementar uma função que encontre o maior valor existente em uma árvore binária de busca.
+
+2) Implementar uma função que encontre o menor valor existente em uma árvore binária de busca.
+
+3) Implementar uma função que espelhe uma arvore binária, ou seja, troque a sub-árvore direita pela sub-árvore
+esquerda de todos os nós.
+
+4) Implementar uma função que retorne verdadeiro se uma árvore é binária de busca e falso caso contrário.
